@@ -5,19 +5,14 @@ const cookiesParser = require('cookie-parser')
 
 const app = express()
 const connectToDb = require('./db/connectToDb')
+const { corsOptions } = require('./utils/common.util')
 
 // const userRoutes = require('./routes/user.route')
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-  })
-)
+app.use(cors(corsOptions))
 
 app.use(express.json())
 app.use(cookiesParser())
-
 app.use(express.urlencoded({ extended: true }))
 
 // app.use('/api/v1/user', userRoutes)

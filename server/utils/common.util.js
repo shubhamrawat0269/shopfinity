@@ -3,7 +3,7 @@ function createResponse(status, message = '', success, payload = null) {
     success,
   }
 
-  if(message) response.message = message
+  if (message) response.message = message
   if (payload) response.payload = payload
 
   return {
@@ -12,12 +12,25 @@ function createResponse(status, message = '', success, payload = null) {
   }
 }
 
-function handleError(statusCode, message){
-  const error = new Error
+function handleError(statusCode, message) {
+  const error = new Error()
   error.statusCode = statusCode
   error.message = message
 
-  return error;
+  return error
 }
 
-module.exports = { createResponse, handleError }
+const corsOptions = {
+  origin: process.env.FRONTEND_URL,
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+    "Cache-Control",
+    "Expires",
+    "Pragma"
+  ],
+  credentials: true,
+}
+
+module.exports = { createResponse, handleError, corsOptions }
