@@ -4,7 +4,7 @@ const express = require('express')
 const cookiesParser = require('cookie-parser')
 
 const app = express()
-// const connectToDb = require('./db/connectToDb')
+const connectToDb = require('./db/connectToDb')
 
 // const userRoutes = require('./routes/user.route')
 
@@ -22,9 +22,9 @@ app.use(express.urlencoded({ extended: true }))
 
 // app.use('/api/v1/user', userRoutes)
 
-// connectToDb()
+connectToDb()
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8082
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`)
