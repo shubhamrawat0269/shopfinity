@@ -1,6 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { About, Home } from "./pages";
 import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/auth-layout/layout";
+import AuthLogin from "./pages/auth/Login";
+import AuthRegister from "./pages/auth/Register";
+import AdminLayout from "./layouts/admin-layout/layout";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminProducts from "./pages/admin/products";
+import AdminOrders from "./pages/admin/Orders";
+import AdminFeatures from "./pages/admin/features";
+import ShoppingLayout from "./layouts/shopping-layout/layout";
+import NotFound from "./pages/not-found";
+import ShoppingHome from "./pages/shopping/home";
+import ShoppingList from "./pages/shopping/listing";
+import ShoppingCheckout from "./pages/shopping/checkout";
+import ShoppingAccount from "./pages/shopping/account";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +24,38 @@ const router = createBrowserRouter([
       { path: "", element: <Home /> },
       { path: "about", element: <About /> },
     ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      { path: "login", element: <AuthLogin /> },
+      { path: "register", element: <AuthRegister /> },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      { path: "dashboard", element: <AdminDashboard /> },
+      { path: "products", element: <AdminProducts /> },
+      { path: "orders", element: <AdminOrders /> },
+      { path: "features", element: <AdminFeatures /> },
+    ],
+  },
+  {
+    path: "/shop",
+    element: <ShoppingLayout />,
+    children: [
+      { path: "home", element: <ShoppingHome /> },
+      { path: "listing", element: <ShoppingList /> },
+      { path: "checkout", element: <ShoppingCheckout /> },
+      { path: "account", element: <ShoppingAccount /> },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
