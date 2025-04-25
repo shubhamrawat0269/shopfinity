@@ -15,6 +15,16 @@ import ShoppingHome from "./pages/shopping/home";
 import ShoppingList from "./pages/shopping/listing";
 import ShoppingCheckout from "./pages/shopping/checkout";
 import ShoppingAccount from "./pages/shopping/account";
+import CheckAuth from "./components/common/check-auth";
+
+const isAuthenticated = false;
+const user = null;
+
+const Protected = ({ children }) => (
+  <CheckAuth isAuthenticated={isAuthenticated} user={user}>
+    {children}
+  </CheckAuth>
+);
 
 const router = createBrowserRouter([
   {
@@ -35,7 +45,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <Protected>
+        <AdminLayout />
+      </Protected>
+    ),
     children: [
       { path: "dashboard", element: <AdminDashboard /> },
       { path: "products", element: <AdminProducts /> },
@@ -45,7 +59,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/shop",
-    element: <ShoppingLayout />,
+    element: (
+      <Protected>
+        <ShoppingLayout />
+      </Protected>
+    ),
     children: [
       { path: "home", element: <ShoppingHome /> },
       { path: "listing", element: <ShoppingList /> },
