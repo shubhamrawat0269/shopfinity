@@ -1,5 +1,5 @@
 import { About, Home } from "./pages";
-import MainLayout from "./layouts/MainLayout";
+import MainLayout from "./layouts/default";
 import AuthLayout from "./layouts/auth-layout/layout";
 import AuthLogin from "./pages/auth/Login";
 import AuthRegister from "./pages/auth/Register";
