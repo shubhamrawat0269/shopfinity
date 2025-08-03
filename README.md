@@ -29,8 +29,8 @@
 # 📌Todo's
 Note :--> `When task done mark with [✅]. When task in progress mark with [⌛].`
 
-- @Task:1 == [✅] --> Setting Project and dependencies
-- @Task:2 == [⌛] --> Creating Pages and layout
+- @Task:1 == [⌛] --> Setting Project and dependencies
+- @Task:2 == [] --> Creating Pages and layout
 - @Task:3 == [] --> Implementing auth logic
 - @Task:4 == [] --> Sign up and sign in page implementation
 - @Task:5 == [] --> Admin view header and sidebar component
